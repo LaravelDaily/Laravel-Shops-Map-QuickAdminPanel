@@ -20,7 +20,7 @@ class ShopsApiController extends Controller
     {
         abort_if(Gate::denies('shop_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return new ShopResource(Shop::with(['categories'])->get());
+        return new ShopResource(Shop::with(['categories', 'created_by'])->get());
     }
 
     public function store(StoreShopRequest $request)
@@ -41,7 +41,7 @@ class ShopsApiController extends Controller
     {
         abort_if(Gate::denies('shop_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return new ShopResource($shop->load(['categories']));
+        return new ShopResource($shop->load(['categories', 'created_by']));
     }
 
     public function update(UpdateShopRequest $request, Shop $shop)

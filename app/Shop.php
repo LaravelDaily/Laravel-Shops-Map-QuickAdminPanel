@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Traits\MultiTenantModelTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
@@ -10,7 +11,7 @@ use Spatie\MediaLibrary\Models\Media;
 
 class Shop extends Model implements HasMedia
 {
-    use SoftDeletes, HasMediaTrait;
+    use SoftDeletes, MultiTenantModelTrait, HasMediaTrait;
 
     public $table = 'shops';
 
@@ -33,6 +34,7 @@ class Shop extends Model implements HasMedia
         'deleted_at',
         'description',
         'coordinates',
+        'created_by_id',
     ];
 
     public function registerMediaConversions(Media $media = null)
@@ -54,5 +56,10 @@ class Shop extends Model implements HasMedia
         });
 
         return $files;
+    }
+
+    public function created_by()
+    {
+        return $this->belongsTo(User::class, 'created_by_id');
     }
 }

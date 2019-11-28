@@ -53,7 +53,7 @@ class ShopsController extends Controller
 
         $categories = Category::all()->pluck('name', 'id');
 
-        $shop->load('categories');
+        $shop->load('categories', 'created_by');
 
         return view('admin.shops.edit', compact('categories', 'shop'));
     }
@@ -86,7 +86,7 @@ class ShopsController extends Controller
     {
         abort_if(Gate::denies('shop_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $shop->load('categories');
+        $shop->load('categories', 'created_by');
 
         return view('admin.shops.show', compact('shop'));
     }

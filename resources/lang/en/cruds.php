@@ -107,6 +107,8 @@ return [
             'updated_at_helper'  => '',
             'deleted_at'         => 'Deleted at',
             'deleted_at_helper'  => '',
+            'created_by'         => 'Created By',
+            'created_by_helper'  => '',
         ],
     ],
 ];
