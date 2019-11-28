@@ -52,6 +52,26 @@
                     </ul>
                 </li>
             @endcan
+            @can('category_access')
+                <li class="nav-item">
+                    <a href="{{ route("admin.categories.index") }}" class="nav-link {{ request()->is('admin/categories') || request()->is('admin/categories/*') ? 'active' : '' }}">
+                        <i class="fa-fw fas fa-tags nav-icon">
+
+                        </i>
+                        {{ trans('cruds.category.title') }}
+                    </a>
+                </li>
+            @endcan
+            @can('shop_access')
+                <li class="nav-item">
+                    <a href="{{ route("admin.shops.index") }}" class="nav-link {{ request()->is('admin/shops') || request()->is('admin/shops/*') ? 'active' : '' }}">
+                        <i class="fa-fw fas fa-shopping-basket nav-icon">
+
+                        </i>
+                        {{ trans('cruds.shop.title') }}
+                    </a>
+                </li>
+            @endcan
             <li class="nav-item">
                 <a href="#" class="nav-link" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                     <i class="nav-icon fas fa-fw fa-sign-out-alt">

@@ -24,4 +24,13 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     // Users
     Route::delete('users/destroy', 'UsersController@massDestroy')->name('users.massDestroy');
     Route::resource('users', 'UsersController');
+
+    // Categories
+    Route::delete('categories/destroy', 'CategoriesController@massDestroy')->name('categories.massDestroy');
+    Route::resource('categories', 'CategoriesController');
+
+    // Shops
+    Route::delete('shops/destroy', 'ShopsController@massDestroy')->name('shops.massDestroy');
+    Route::post('shops/media', 'ShopsController@storeMedia')->name('shops.storeMedia');
+    Route::resource('shops', 'ShopsController');
 });
