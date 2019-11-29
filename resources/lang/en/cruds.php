@@ -97,8 +97,6 @@ return [
             'photos_helper'      => '',
             'address'            => 'Address',
             'address_helper'     => '',
-            'coordinates'        => 'Coordinates',
-            'coordinates_helper' => '',
             'active'             => 'Active',
             'active_helper'      => '',
             'created_at'         => 'Created at',

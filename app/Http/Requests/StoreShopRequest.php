@@ -28,9 +28,6 @@ class StoreShopRequest extends FormRequest
             'categories'   => [
                 'array',
             ],
-            'active'       => [
-                'required',
-            ],
         ];
     }
 }

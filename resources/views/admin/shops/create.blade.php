@@ -60,7 +60,9 @@
             </div>
             <div class="form-group">
                 <label for="address">{{ trans('cruds.shop.fields.address') }}</label>
-                <input class="form-control {{ $errors->has('address') ? 'is-invalid' : '' }}" type="text" name="address" id="address" value="{{ old('address', '') }}">
+                <input class="form-control map-input {{ $errors->has('address') ? 'is-invalid' : '' }}" type="text" name="address" id="address" value="{{ old('address') }}">
+                <input type="hidden" name="latitude" id="address-latitude" value="{{ old('latitude') ?? '0' }}" />
+                <input type="hidden" name="longitude" id="address-longitude" value="{{ old('longitude') ?? '0' }}" />
                 @if($errors->has('address'))
                     <div class="invalid-feedback">
                         {{ $errors->first('address') }}
@@ -68,20 +70,13 @@
                 @endif
                 <span class="help-block">{{ trans('cruds.shop.fields.address_helper') }}</span>
             </div>
-            <div class="form-group">
-                <label for="coordinates">{{ trans('cruds.shop.fields.coordinates') }}</label>
-                <input class="form-control {{ $errors->has('coordinates') ? 'is-invalid' : '' }}" type="text" name="coordinates" id="coordinates" value="{{ old('coordinates', '') }}">
-                @if($errors->has('coordinates'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('coordinates') }}
-                    </div>
-                @endif
-                <span class="help-block">{{ trans('cruds.shop.fields.coordinates_helper') }}</span>
+            <div id="address-map-container" class="mb-2" style="width:100%;height:400px; ">
+                <div style="width: 100%; height: 100%" id="address-map"></div>
             </div>
             <div class="form-group">
                 <div class="form-check {{ $errors->has('active') ? 'is-invalid' : '' }}">
-                    <input class="form-check-input" type="checkbox" name="active" id="active" value="1" required {{ old('active', 0) == 1 ? 'checked' : '' }}>
-                    <label class="required form-check-label" for="active">{{ trans('cruds.shop.fields.active') }}</label>
+                    <input class="form-check-input" type="checkbox" name="active" id="active" value="1" {{ old('active', 0) == 1 ? 'checked' : '' }}>
+                    <label class="form-check-label" for="active">{{ trans('cruds.shop.fields.active') }}</label>
                 </div>
                 @if($errors->has('active'))
                     <div class="invalid-feedback">
@@ -103,6 +98,8 @@
 @endsection
 
 @section('scripts')
+<script src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_API_KEY') }}&libraries=places&callback=initialize" async defer></script>
+<script src="/js/mapInput.js"></script>
 <script>
     var uploadedPhotosMap = {}
 Dropzone.options.photosDropzone = {

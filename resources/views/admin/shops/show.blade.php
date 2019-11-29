@@ -71,14 +71,6 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.shop.fields.coordinates') }}
-                        </th>
-                        <td>
-                            {{ $shop->coordinates }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
                             {{ trans('cruds.shop.fields.active') }}
                         </th>
                         <td>

@@ -28,9 +28,6 @@ class UpdateShopRequest extends FormRequest
             'categories'   => [
                 'array',
             ],
-            'active'       => [
-                'required',
-            ],
         ];
     }
 }

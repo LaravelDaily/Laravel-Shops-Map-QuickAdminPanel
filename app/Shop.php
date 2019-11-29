@@ -33,7 +33,8 @@ class Shop extends Model implements HasMedia
         'updated_at',
         'deleted_at',
         'description',
-        'coordinates',
+        'latitude',
+        'longitude',
         'created_by_id',
     ];
 
