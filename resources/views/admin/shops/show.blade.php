@@ -77,6 +77,21 @@
                             <input type="checkbox" disabled="disabled" {{ $shop->active ? 'checked' : '' }}>
                         </td>
                     </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.shop.fields.working_hours') }}
+                        </th>
+                        <td>
+                            @if($shop->days)
+                                @foreach($shop->days as $day)
+                                    <strong>{{ ucfirst($day->name) }}</strong>:
+                                    from <strong>{{ $day->pivot->from_hours }}:{{ $day->pivot->from_minutes }}</strong>
+                                    to <strong>{{ $day->pivot->to_hours }}:{{ $day->pivot->to_minutes }}</strong>
+                                    <br>
+                                @endforeach
+                            @endif
+                        </td>
+                    </tr>
                 </tbody>
             </table>
             <div class="form-group">

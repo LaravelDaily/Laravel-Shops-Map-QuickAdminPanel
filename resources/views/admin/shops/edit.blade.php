@@ -86,6 +86,52 @@
                 @endif
                 <span class="help-block">{{ trans('cruds.shop.fields.active_helper') }}</span>
             </div>
+            <label>{{ trans('cruds.shop.fields.working_hours') }}</label>
+            @foreach($days as $day)
+                <div class="form-inline">
+                    <label class="my-1 mr-2">{{ ucfirst($day->name) }}: from</label>
+                    <select class="custom-select my-1 mr-sm-2" name="from_hours[{{ $day->id }}]">
+                        <option value="">--</option>
+                        @foreach(range(0,24) as $hours)
+                            <option 
+                                value="{{ $hours < 10 ? "0$hours" : $hours }}"
+                                {{ old('from_hours.'.$day->id, optional($shop->days->find($day->id))->pivot['from_hours']) == ($hours < 10 ? "0$hours" : $hours) ? 'selected' : '' }}
+                            >{{ $hours < 10 ? "0$hours" : $hours }}</option>
+                        @endforeach
+                    </select>
+                    <label class="my-1 mr-2">:</label>
+                    <select class="custom-select my-1 mr-sm-2" name="from_minutes[{{ $day->id }}]">
+                        <option value="">--</option>
+                        @foreach(range(0,59) as $minutes)
+                            <option 
+                                value="{{ $minutes < 10 ? "0$minutes" : $minutes }}"
+                                {{ old('from_minutes.'.$day->id, optional($shop->days->find($day->id))->pivot['from_minutes']) == ($minutes < 10 ? "0$minutes" : $minutes) ? 'selected' : '' }}
+                            >{{ $minutes < 10 ? "0$minutes" : $minutes }}</option>
+                        @endforeach
+                    </select>
+                    <label class="my-1 mr-2">to</label>
+                    <select class="custom-select my-1 mr-sm-2" name="to_hours[{{ $day->id }}]">
+                        <option value="">--</option>
+                        @foreach(range(0,24) as $hours)
+                            <option 
+                                value="{{ $hours < 10 ? "0$hours" : $hours }}"
+                                {{ old('to_hours.'.$day->id, optional($shop->days->find($day->id))->pivot['to_hours']) == ($hours < 10 ? "0$hours" : $hours) ? 'selected' : '' }}
+                            >{{ $hours < 10 ? "0$hours" : $hours }}</option>
+                        @endforeach
+                    </select>
+                    <label class="my-1 mr-2">:</label>
+                    <select class="custom-select my-1 mr-sm-2" name="to_minutes[{{ $day->id }}]">
+                        <option value="">--</option>
+                        @foreach(range(0,59) as $minutes)
+                            <option 
+                                value="{{ $minutes < 10 ? "0$minutes" : $minutes }}"
+                                {{ old('to_minutes.'.$day->id, optional($shop->days->find($day->id))->pivot['to_minutes']) == ($minutes < 10 ? "0$minutes" : $minutes) ? 'selected' : '' }}
+                            >{{ $minutes < 10 ? "0$minutes" : $minutes }}</option>
+                        @endforeach
+                    </select>
+                </div>
+            @endforeach
+
             <div class="form-group">
                 <button class="btn btn-danger" type="submit">
                     {{ trans('global.save') }}

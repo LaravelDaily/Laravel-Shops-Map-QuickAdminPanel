@@ -13,10 +13,11 @@
         "doctrine/dbal": "^2.9",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "^6.2",
+        "laravel/passport": "^7.4",
         "laravel/tinker": "^1.0",
-        "yajra/laravel-datatables-oracle": "^9.7",
         "spatie/laravel-medialibrary": "^7.12",
-        "laravel/passport": "^7.4"
+        "spatie/opening-hours": "^2.7",
+        "yajra/laravel-datatables-oracle": "^9.7"
     },
     "require-dev": {
         "facade/ignition": "^1.4",

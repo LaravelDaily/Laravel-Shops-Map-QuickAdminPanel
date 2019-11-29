@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Category;
+use App\Day;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Traits\MediaUploadingTrait;
 use App\Http\Requests\MassDestroyShopRequest;
@@ -31,14 +32,28 @@ class ShopsController extends Controller
         abort_if(Gate::denies('shop_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $categories = Category::all()->pluck('name', 'id');
+        $days = Day::all();
 
-        return view('admin.shops.create', compact('categories'));
+        return view('admin.shops.create', compact('categories', 'days'));
     }
 
     public function store(StoreShopRequest $request)
     {
         $shop = Shop::create($request->all());
         $shop->categories()->sync($request->input('categories', []));
+
+        $hours = collect($request->input('from_hours'))->mapWithKeys(function($value, $id) use ($request) {
+            return $value ? [ 
+                    $id => [
+                        'from_hours'    => $value, 
+                        'from_minutes'  => $request->input('from_minutes.'.$id), 
+                        'to_hours'      => $request->input('to_hours.'.$id),
+                        'to_minutes'    => $request->input('to_minutes.'.$id)
+                    ]
+                ] 
+                : [];
+        });
+        $shop->days()->sync($hours);
 
         foreach ($request->input('photos', []) as $file) {
             $shop->addMedia(storage_path('tmp/uploads/' . $file))->toMediaCollection('photos');
@@ -52,16 +67,30 @@ class ShopsController extends Controller
         abort_if(Gate::denies('shop_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $categories = Category::all()->pluck('name', 'id');
+        $days = Day::all();
 
-        $shop->load('categories', 'created_by');
+        $shop->load('categories', 'created_by', 'days');
 
-        return view('admin.shops.edit', compact('categories', 'shop'));
+        return view('admin.shops.edit', compact('categories', 'shop', 'days'));
     }
 
     public function update(UpdateShopRequest $request, Shop $shop)
     {
         $shop->update($request->all());
         $shop->categories()->sync($request->input('categories', []));
+
+        $hours = collect($request->input('from_hours'))->mapWithKeys(function($value, $id) use ($request) {
+            return $value ? [ 
+                    $id => [
+                        'from_hours'    => $value, 
+                        'from_minutes'  => $request->input('from_minutes.'.$id), 
+                        'to_hours'      => $request->input('to_hours.'.$id),
+                        'to_minutes'    => $request->input('to_minutes.'.$id)
+                    ]
+                ] 
+                : [];
+        });
+        $shop->days()->sync($hours);
 
         if (count($shop->photos) > 0) {
             foreach ($shop->photos as $media) {
@@ -86,9 +115,10 @@ class ShopsController extends Controller
     {
         abort_if(Gate::denies('shop_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
+        $days = Day::all();
         $shop->load('categories', 'created_by');
 
-        return view('admin.shops.show', compact('shop'));
+        return view('admin.shops.show', compact('shop', 'days'));
     }
 
     public function destroy(Shop $shop)

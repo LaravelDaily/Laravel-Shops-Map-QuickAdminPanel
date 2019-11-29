@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\Models\Media;
+use Spatie\OpeningHours\OpeningHours;
 
 class Shop extends Model implements HasMedia
 {
@@ -48,6 +49,11 @@ class Shop extends Model implements HasMedia
         return $this->belongsToMany(Category::class);
     }
 
+    public function days()
+    {
+        return $this->belongsToMany(Day::class)->withPivot('from_hours', 'from_minutes', 'to_hours', 'to_minutes');
+    }
+
     public function getPhotosAttribute()
     {
         $files = $this->getMedia('photos');
@@ -62,5 +68,18 @@ class Shop extends Model implements HasMedia
     public function created_by()
     {
         return $this->belongsTo(User::class, 'created_by_id');
+    }
+
+    public function working_hours()
+    {
+        $hours = $this->days->mapWithKeys(function($day) {
+            return [
+                $day->name => [
+                    $day->pivot['from_hours'].':'.$day->pivot['from_minutes'].'-'.$day->pivot['to_hours'].':'.$day->pivot['to_minutes']
+                ]
+            ];
+        });
+
+        return OpeningHours::create($hours->toArray());
     }
 }
