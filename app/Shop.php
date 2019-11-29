@@ -41,7 +41,7 @@ class Shop extends Model implements HasMedia
 
     public function registerMediaConversions(Media $media = null)
     {
-        $this->addMediaConversion('thumb')->width(50)->height(50);
+        $this->addMediaConversion('thumb')->width(325)->height(210);
     }
 
     public function categories()
