@@ -72,13 +72,13 @@ class Shop extends Model implements HasMedia
 
     public function working_hours()
     {
-        $hours = $this->days->mapWithKeys(function($day) {
-            return [
-                $day->name => [
-                    $day->pivot['from_hours'].':'.$day->pivot['from_minutes'].'-'.$day->pivot['to_hours'].':'.$day->pivot['to_minutes']
-                ]
-            ];
-        });
+        $hours = $this->days
+            ->pluck('pivot', 'name')
+            ->map(function($pivot) {
+                return [
+                    $pivot['from_hours'].':'.$pivot['from_minutes'].'-'.$pivot['to_hours'].':'.$pivot['to_minutes']
+                ];
+            });
 
         return OpeningHours::create($hours->toArray());
     }
