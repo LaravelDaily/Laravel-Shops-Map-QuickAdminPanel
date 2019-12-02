@@ -1,6 +1,5 @@
 <?php
 
-Route::redirect('/', '/login');
 Route::get('/home', function () {
     if (session('status')) {
         return redirect()->route('admin.home')->with('status', session('status'));
@@ -8,6 +7,8 @@ Route::get('/home', function () {
 
     return redirect()->route('admin.home');
 });
+
+Route::get('/', 'HomeController@index')->name('home');
 
 Auth::routes();
 
