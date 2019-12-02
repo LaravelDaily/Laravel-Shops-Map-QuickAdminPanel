@@ -1,0 +1,40 @@
+.copyright {
+  background-color: $copyright-bg;
+  border-top: 1px solid $copyright-border-color;
+  .container {
+    padding-top: $copyright-padding-top;
+    padding-bottom: $copyright-padding-bottom;
+    text-align: center;
+    overflow: hidden;
+    p {
+      margin: 0;
+    }
+  }
+}
+.ds_footer_links {
+  ul {
+    overflow: hidden;
+    margin: 0;
+    padding: 5px 0 5px 0
+  }
+  li {
+    list-style: none;
+    float: left;
+    a,
+    a:hover,
+    a:visited,
+    a:active {
+      color: $body-color;
+      padding: 3px 8px;
+    }
+  }
+}
+.footer-links-active {
+  overflow: hidden;
+  .copyright-text {
+    float: left;
+  }
+  .ds_footer_links {
+    float: right;
+  }
+}

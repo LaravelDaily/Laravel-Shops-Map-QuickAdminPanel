@@ -1,0 +1,211 @@
+.footer-widgets {
+  background-color: $footer-widget-bg;
+  border-top: 1px solid $fw-border-top-color;
+  border-bottom: 1px solid $fw-border-bottom-color;
+  -webkit-box-shadow: 0 -1px 1px $fw-box-shadow-color;
+  -moz-box-shadow: 0 -1px 1px $fw-box-shadow-color;
+  box-shadow: 0 -1px 1px $fw-box-shadow-color;
+  .container {
+    overflow: hidden;
+  }
+  .menu li {
+    margin-bottom: 6px;
+  }
+  h4 {
+    color: #bbb;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    padding-bottom: 7px;
+    -webkit-box-shadow: 0 1px 1px rgba(255, 255, 255, 0.05);
+    -moz-box-shadow: 0 1px 1px rgba(255, 255, 255, 0.05);
+    box-shadow: 0 1px 1px rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  }
+  a, a:visited {
+    color: #bbb;
+  }
+  ul {
+    margin-left: 0;
+    li {
+      list-style-type: none;
+    }
+  }
+  input[type="text"],
+  input[type="password"],
+  select {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background-color: #515151;
+    color: #ccc;
+    height: 30px;
+    line-height: 30px;
+  }
+  button, input[type=button], input[type=reset], input[type=submit] {
+    padding: 5px 12px;
+  }
+  .col-lg-3 {
+    padding: 0 15px;
+  }
+  .geodir-loginbox-list li {
+    border-bottom: none;
+  }
+  .chosen-with-drop{
+    .chosen-drop{
+      position: relative;
+    }
+  }
+}
+
+
+//footer widgets
+//.footer-widgets {
+//  .geodir-loc-bar {
+//    padding: 0;
+//    margin: 0;
+//    border: none;
+//    input[type="text"],
+//    input[type="password"],
+//    select,
+//    input[type="button"] {
+//      width: 100%;
+//    }
+//  }
+//  .customize_filter-in {
+//    width: 100%;
+//    padding: 5px;
+//    background: transparent;
+//    border: none;
+//  }
+//  .customize_filter ul li {
+//    border: none;
+//  }
+//  .geodir-loc-bar-in {
+//    background: transparent;
+//    border: none;
+//  }
+//  .geodir-search {
+//    margin-right: 10px;
+//  }
+//}
+//
+//.widget_archive,
+//.widget_nav_menu,
+//.widget_categories,
+//#footer .geodir_popular_post_category {
+//  ul {
+//    margin: 0;
+//    list-style-type: none;
+//    li {
+//      border-bottom: 1px solid #ddd;
+//      .sub-menu li {
+//        &:first-child {
+//          border-top: 1px solid #ddd;
+//        }
+//      }
+//      a {
+//        display: block;
+//        padding: 15px 10px;
+//        padding-left: 40px;
+//        position: relative;
+//        color: #757575;
+//        &:before {
+//          font-family: "FontAwesome";
+//          position: absolute;
+//          left: 15px;
+//          top: 15px;
+//        }
+//        &:after {
+//          font-family: "FontAwesome";
+//          content: "\f105";
+//          position: absolute;
+//          right: 15px;
+//          top: 15px;
+//        }
+//      }
+//      a:visited {
+//        color: #757575;
+//      }
+//      &:last-child {
+//        border-bottom: none;
+//      }
+//    }
+//  }
+//}
+//.widget_categories,
+//#footer .geodir_popular_post_category {
+//  ul li a:before {
+//    content: "\f115";
+//  }
+//}
+//.widget_archive {
+//  ul li a:before {
+//    content: "\f10c";
+//  }
+//}
+//.widget_nav_menu {
+//  ul li a:before {
+//    content: "\f192";
+//  }
+//}
+//
+//#footer {
+//  .widget_archive,
+//  .widget_nav_menu,
+//  .widget_categories,
+//  .geodir_popular_post_category {
+//    ul {
+//      li {
+//        float: none;
+//        border-bottom: 1px dotted rgba(0,0,0,0.4);
+//        .sub-menu li {
+//          &:first-child {
+//            border-top: 1px dotted rgba(0,0,0,0.4);
+//          }
+//          &:last-child {
+//            border-bottom: none;
+//          }
+//        }
+//        a {
+//          padding: 8px 10px;
+//          padding-left: 40px;
+//          &:before {
+//            top:10px;
+//          }
+//          &:after {
+//            top:10px;
+//          }
+//        }
+//      }
+//    }
+//  }
+//}
+//
+//.footer-widgets .menu li {
+//  margin-bottom: 0;
+//
+//}
+//
+//#footer {
+//  .geodir-category-list-in {
+//    margin-top: 0;
+//    background: transparent;
+//    border: none;
+//    padding: 0;
+//  }
+//  .footer-widgets h4 {
+//    padding-bottom: 12px;
+//  }
+//  .geodir_popular_post_category {
+//    select.geodir-cat-list-tax {
+//      width: 90%;
+//      margin: 0 auto;
+//    }
+//    ul {
+//      li {
+//        padding: 0;
+//        img {
+//          display: none
+//        }
+//      }
+//    }
+//  }
+//}

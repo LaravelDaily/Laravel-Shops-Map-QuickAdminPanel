@@ -1,0 +1,28 @@
+.dt-btn {
+  cursor: pointer;
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  background-image: none;
+  border-radius: 4px;
+  color: $btn-text-color;
+  background-color: $btn-bg-color;
+  border: 1px solid $btn-border-color;
+  &:hover, &:focus {
+    background-color: $btn-hover-color;
+    color: $btn-text-color;
+    outline: 0;
+  }
+}
+button,
+input[type=button],
+input[type=reset],
+input[type=submit],
+a.geodir_goback {
+  @extend .dt-btn;
+}

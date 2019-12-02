@@ -1,0 +1,6 @@
+/*--------------------------------------------------------------
+20.0 Misc
+--------------------------------------------------------------*/
+
+// Google maps adds a span which breaks our mobile slide out menus
+body > span[style*='top: -999px']{display: none;}

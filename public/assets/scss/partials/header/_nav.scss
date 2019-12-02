@@ -1,0 +1,125 @@
+/**
+ * 5.0 - Navigation
+ */
+#primary-nav:before,
+#primary-nav:after {
+  display: table;
+  content: " ";
+}
+
+#primary-nav {
+  display: inline-block;
+  vertical-align: top;
+  width: 80%;
+  box-sizing: border-box;
+  padding: 0px 5px;
+  margin-left: -1%; // compensate for border problems
+  ul {
+    margin: 0;
+    float: right;
+
+    @for $i from 1 to 20 {
+      li:nth-child(#{$i}) { z-index: 1500 - $i; }
+    }
+
+    li {
+      padding: 0 20px;
+      float: left;
+      list-style-type: none;
+      position: relative;
+      &:first-child {
+        padding-left: 0;
+      }
+      &:last-child {
+        padding-right: 0;
+      }
+      a {
+        height: $p-nav-height;
+        line-height: $p-nav-line-height;
+        font-weight: 400;
+        font-size: 14px;
+        text-transform: uppercase;
+        text-decoration: none;
+      }
+    }
+    .sub-menu {
+      position: absolute;
+      left: 0;
+      display: none;
+      opacity: 0;
+      z-index: 1;
+      border: 1px solid $header-border-color;
+      border-top: none;
+      -webkit-box-shadow: 0 1px 1px $header-shadow-color;
+      -moz-box-shadow: 0 1px 1px $header-shadow-color;
+      box-shadow: 0 1px 1px $header-shadow-color;
+      ul {
+        top: 0;
+      }
+      li {
+        float: none;
+        margin: 0;
+        padding: 0;
+      }
+      a {
+        width: 200px;
+        background: $p-nav-submenu-bg-color;
+        border: 0;
+        padding: 7px 20px;
+        line-height: 20px;
+        text-indent: 0;
+        height: auto;
+        display: block;
+        &:hover {
+          background: $p-nav-submenu-bg-hover;
+        }
+      }
+      .sub-menu {
+        position: absolute;
+        left: -200px;
+        top: 0px;
+      }
+    }
+    li:last-child {
+      padding-right: 0;
+    }
+    li:hover > .sub-menu {
+      visibility: visible;
+      opacity: 1;
+      display: block;
+    }
+    li:last-child:hover {
+      left: auto;
+      right: 0;
+    }
+  }
+}
+
+#gd-account-nav,
+.dt-nav-toggle,
+.dt-mobile-account-wrap{
+  display: none;
+  font-size: 25px;
+}
+
+#mm-gd-account-nav.mm-opened,
+#gd-account-nav.mm-opened{
+  display:block !important;
+}
+.mm-menu{
+  .chosen-results{
+    color: #666
+  }
+
+  select {
+    width: 100%;
+    margin: 5px auto;
+    float: none;
+    color: #666;
+  }
+  .gd-no-chosen-seach{
+    width: 100%;
+  }
+}
+
+

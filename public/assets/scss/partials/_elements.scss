@@ -1,0 +1,110 @@
+/*--------------------------------------------------------------
+3.0 Elements
+--------------------------------------------------------------*/
+hr {
+  background-color: #ccc;
+  border: 0;
+  height: 1px;
+  margin-bottom: 20px;
+}
+ul, ol {
+  margin: 0 0 20px 20px;
+  padding: 0;
+}
+ul {
+  list-style: disc;
+}
+ol {
+  list-style: decimal;
+}
+li > ul,
+li > ol {
+  margin-bottom: 0;
+  margin-left: 20px;
+}
+dt {
+  font-weight: bold;
+}
+dd {
+  margin: 0;
+}
+figure {
+  margin: 0;
+}
+table {
+  margin: 0 0 20px;
+  width: 100%;
+}
+th {
+  font-weight: bold;
+  text-align: left;
+}
+p {
+  margin: 0 0 5px;
+}
+img {
+  max-width: 100%;
+}
+blockquote {
+  padding: 10px 20px;
+  margin: 0 0 20px;
+  border-left: 4px solid $body-color;
+}
+blockquote p:last-child,
+blockquote ul:last-child,
+blockquote ol:last-child {
+  margin-bottom: 0;
+}
+blockquote footer,
+blockquote cite,
+blockquote small,
+blockquote .small {
+  display: block;
+  font-size: 80%;
+  line-height: 1.42857143;
+  color: $body-color;
+}
+blockquote cite {
+  margin-top: 5px;
+}
+#comments .comment-text blockquote cite {
+  margin-top: 5px !important;
+}
+
+pre {
+  display: block;
+  padding: 9.5px;
+  margin: 0 0 10px;
+  word-break: break-all;
+  word-wrap: break-word;
+  background-color: #f3f3f3;
+  border: 1px solid #e6e6e6;
+  border-radius: 4px;
+}
+
+/* Text meant only for screen readers */
+.screen-reader-text {
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute !important;
+  width: 1px;
+}
+
+
+.embed-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 30px;
+  overflow: hidden;
+  max-width: 100%;
+  height: auto;
+
+  iframe, object, embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}

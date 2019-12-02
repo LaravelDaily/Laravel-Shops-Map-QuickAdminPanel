@@ -1,0 +1,28 @@
+.site-header {
+  min-height: $header-height;
+  background-color: $header-bg-color;
+  border-bottom: 1px solid $header-border-color;
+  -webkit-box-shadow: 0 1px 1px $header-shadow-color;
+  -moz-box-shadow: 0 1px 1px $header-shadow-color;
+  box-shadow: 0 1px 1px $header-shadow-color;
+  color: $header-text-color;
+  a, a:visited {
+    color: $header-link-color;
+    &:hover,
+    &:focus,
+    &:active {
+      color: $header-link-hover;
+    }
+  }
+  &:after {
+    clear: both;
+  }
+}
+.fixed-header {
+  position: fixed;
+  z-index: 200;
+  top: $header-fixed-top;
+}
+@import "header/logo";
+@import "header/nav";
+@import "header/top";

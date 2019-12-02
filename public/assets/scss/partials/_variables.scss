@@ -1,0 +1,75 @@
+//container
+$container-width: 1170px;
+$container-padding-right: 15px;
+$container-padding-left: 15px;
+$container-margin-right: auto;
+$container-margin-left: auto;
+//logo
+$logo-margin-right: 0;
+$logo-margin-left: 0;
+$logo-margin-top: 15px;
+//typography
+$font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+$font-size: 13px;
+$line-height: 20px;
+//colors
+$background-color:  #F2F2F2;
+$body-color:        #757575;
+//content box colors
+$content-bg:        #FFFFFF;
+$content-border:    #FFFFFF;
+$content-shadow:    rgba(0,0,0,0.2);
+$color-white:       #FFFFFF;
+//h1 to h6
+$h1toh6-color:      $body-color;
+//alerts
+$alert-yellow:      #FCF8E3;
+$alert-red:         #F2DEDE;
+$alert-green:       #DFF0D8;
+$alert-blue:        #D9EDF7;
+
+$alert-yellow-text: #8A6D3B;
+$alert-red-text:    #A94442;
+$alert-green-text:  #3C763D;
+$alert-blue-text:   #31708F;
+
+$alert-yellow-border:#FAEBCC;
+$alert-red-border:  #EBCCD1;
+$alert-green-border:#D6E9C6;
+$alert-blue-border: #BCE8F1;
+//links
+$link-color:        #ED6D62;
+$link-hover:        darken($link-color, 9%);
+$link-visited:      $link-color;
+//header
+$header-height: 85px;
+$header-fixed-top: 32px;
+$header-bg-color: #2F2F2F;
+$header-link-color: #FFFFFF;
+$header-text-color: #FFFFFF;
+$header-link-hover:  darken($header-link-color, 9%);
+$header-border-color: #FFFFFF;
+$header-shadow-color: rgba(0,0,0,0.2);
+//primary nav
+$p-nav-height: 84px;
+$p-nav-line-height: $p-nav-height;
+$p-nav-padding-right: 45px;
+//primary nav submenu
+$p-nav-submenu-bg-color: $header-bg-color;
+$p-nav-menu-bg-hover: lighten($header-bg-color, 9%);
+$p-nav-submenu-bg-hover: lighten($p-nav-submenu-bg-color, 9%);
+//footer widget
+$footer-widget-bg:  #2F2F2F;
+$fw-border-top-color: #FFFFFF;
+$fw-border-bottom-color: #444;
+$fw-box-shadow-color: rgba(0,0,0,0.2);
+//copyright
+$copyright-bg:      #202020;
+$copyright-padding-top: 20px;
+$copyright-padding-bottom: 20px;
+$copyright-border-color: #151515;
+//buttons
+$btn-text-color:    #FFFFFF;
+$btn-bg-color:      $link-color;
+$btn-hover-color:   darken($btn-bg-color, 9%);
+$btn-border-color:  lighten($btn-bg-color, 9%);

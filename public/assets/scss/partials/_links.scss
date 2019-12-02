@@ -1,0 +1,22 @@
+/*--------------------------------------------------------------
+5.1 Links
+--------------------------------------------------------------*/
+a,a:visited {
+  color: $link-color;
+  text-decoration: none;
+  &:hover,
+  &:focus,
+  &:active {
+    color: $link-hover;
+  }
+}
+%btn-links {
+  a, a:visited {
+    color: $btn-text-color;
+    &:hover,
+    &:focus,
+    &:active {
+      color: $btn-text-color;
+    }
+  }
+}

@@ -1,0 +1,28 @@
+.site-logo-wrap {
+  display: inline-block;
+  vertical-align: top;
+  width: 20%;
+  box-sizing: border-box;
+  padding: 0px 5px;
+  h1 {
+    margin-top: 15px;
+    margin-bottom: 10px;
+  }
+  h1.site-title-no-desc {
+    margin-top: 25px;
+  }
+  h2 {
+    margin: 0;
+    font-size: 15px;
+  }
+  .site-logo {
+     margin-top: $logo-margin-top;
+     margin-right: $logo-margin-right;
+     margin-left: $logo-margin-left;
+  }
+}
+.dt-header-top-enabled {
+  .site-logo-wrap h1 {
+    margin-top: 25px;
+  }
+}

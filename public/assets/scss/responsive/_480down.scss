@@ -1,0 +1,19 @@
+@media (max-width: 480px) {
+  .geodir-locListing_column ul {
+    border-left: 1px #ccc solid;
+    border-right: 1px #ccc solid;
+    border-bottom: 1px #ccc solid;
+  }
+  .geodir_locListing_main ul li {
+    border-bottom: 1px solid #dddddd;
+    &:last-child {
+      border-bottom: none;
+      -webkit-border-radius:0 0 5px 5px;
+      -moz-border-radius:0 0 5px 5px;
+      border-radius:0 0 5px 5px;
+    }
+  }
+  .geodir_locListing_main input[type="text"] {
+    //background-color: #f9f9f9;
+  }
+}

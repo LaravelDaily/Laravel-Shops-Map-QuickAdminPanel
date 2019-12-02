@@ -1,0 +1,22 @@
+@media (max-width: 768px) {
+  #reviewsTab #comments .comment-links,
+  .wpl_reviews #comments .comment-links,
+  .gdbp-wrapper-reviews #comments .comment-links {
+    overflow: hidden;
+    width: auto;
+    text-align: right;
+    position: relative;
+    top: auto;
+    right: auto;
+  }
+  #reviewsTab #comments .comment-content,
+  .wpl_reviews #comments .comment-content,
+  .gdbp-wrapper-reviews #comments .comment-content {
+    margin-left: 0;
+  }
+  #reviewsTab #comments ol.commentlist ol.children .comment-content,
+  .wpl_reviews #comments ol.commentlist ol.children .comment-content,
+  .gdbp-wrapper-reviews #comments ol.commentlist ol.children .comment-content {
+    margin-top: 0;
+  }
+}

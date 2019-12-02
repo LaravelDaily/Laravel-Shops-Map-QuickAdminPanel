@@ -1,0 +1,293 @@
+#buddypress #commentform input[type=text],
+#buddypress #commentform textarea,
+#buddypress .form-allowed-tags,
+#buddypress .standard-form#signup_form input[type=text],
+#buddypress .standard-form#signup_form textarea {
+  width: 100%;
+}
+
+#buddypress .standard-form #basic-details-section input[type=password],
+#buddypress .standard-form #blog-details-section input#signup_blog_url {
+  width: 100%;
+}
+
+#buddypress .standard-form#signup_form div.submit {
+  float: none;
+  text-align: right;
+}
+
+#buddypress div.message-search {
+  margin-top: 10px;
+}
+#buddypress .dir-search input[type=text],
+#buddypress .message-search input[type=text] {
+  width: auto;
+}
+#buddypress .dir-search input[type=submit],
+#buddypress .message-search input[type=submit] {
+  line-height: 1.42857143;
+}
+#buddypress div.pagination {
+  float: none;
+}
+
+//alerts
+#buddypress #message.info p {
+  @extend %alert;
+  @extend .alert-warning;
+}
+
+#buddypress div#message.updated p {
+  @extend %alert;
+  @extend .alert-success;
+}
+
+#buddypress div#message.error p {
+  @extend %alert;
+  @extend .alert-error;
+}
+
+//BuddyPress integration
+.gdbp-listings-page {
+  .geodir_category_list_view {
+    .gridview_onehalf {
+      h3.geodir-entry-title {
+        margin-top: 20px !important;
+      }
+    }
+    .gridview_onethird {
+      h3.geodir-entry-title {
+        margin-top: 15px !important;
+      }
+    }
+    .gridview_onefourth {
+      h3.geodir-entry-title {
+        margin-top: 10px !important;
+      }
+    }
+    .gridview_onefifth {
+      h3.geodir-entry-title {
+        margin-top: 5px !important
+      }
+    }
+  }
+}
+
+#buddypress {
+  div.activity-comments {
+    div.acomment-avatar img {
+      height: auto;
+      width: auto;
+      -webkit-border-radius: 4px;
+      -moz-border-radius: 4px;
+      border-radius: 4px;
+    }
+    form .ac-textarea {
+      background: transparent;
+      border: none;
+      margin-bottom: 10px;
+      padding: 0;
+      textarea {
+        @extend .dt-textarea;
+        padding: 6px;
+      }
+    }
+  }
+  .activity-list li.mini {
+    font-size: 100%;
+    .activity-avatar img.avatar {
+      height: auto;
+      margin-left: 0;
+      width: auto;
+    }
+  }
+  #activity-stream {
+    .activity-header {
+      margin-bottom: 3px;
+      p {
+        margin: 0;
+      }
+    }
+    .activity-inner {
+      margin: 0;
+      margin-top: -10px;
+    }
+    .activity-meta {
+      margin: 0;
+      a.button {
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+      }
+    }
+  }
+  #item-body form#whats-new-form {
+    margin-bottom: 20px;
+    margin-top: 30px;
+  }
+  form#whats-new-form #whats-new-content {
+    padding-bottom: 0;
+  }
+  div .item-list-tabs ul {
+    border-bottom: 1px solid #ddd;
+    > li {
+      float: left;
+      // Make the list-items overlay the bottom border
+      margin-bottom: -1px;
+
+      // Actual tabs (as links)
+      > a {
+        position: relative;
+        display: block;
+        padding: 10px 15px;
+        margin-right: 2px;
+        line-height: 1.42857143;
+        border: 1px solid transparent;
+        border-radius: 4px 4px 0 0;
+        &:hover {
+          border-color: #eee #eee #ddd;
+        }
+      }
+
+      // Active state, and its :hover to override normal :hover
+      &.selected > a {
+        &,
+        &:hover,
+        &:focus {
+          color: #555;
+          cursor: default;
+          background-color: #fff;
+          border: 1px solid #ddd;
+          border-bottom-color: transparent;
+          opacity: 1;
+          font-weight: normal;
+        }
+      }
+    }
+    &:before,
+    &:after {
+      display: table;
+      content: "";
+      line-height: 0;
+    }
+    &:after {
+      clear: both;
+    }
+  }
+  div .item-list-tabs#subnav ul {
+    border-bottom: none;
+  }
+  div#item-header img.avatar,
+  #whats-new-avatar img {
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+  }
+  div.item-list-tabs#subnav {
+    margin-top: 25px;
+  }
+  div.item-list-tabs#subnav ul li.last {
+    margin-top: 0;
+  }
+  div.item-list-tabs#subnav ul li#activity-filter-select label,
+  div.item-list-tabs#subnav ul li#members-order-select label {
+    display: none;
+  }
+  .activity-list .activity-avatar img {
+    border-radius: 4px;
+  }
+  form#whats-new-form {
+    textarea {
+      -webkit-box-sizing: content-box;
+      -moz-box-sizing: content-box;
+      box-sizing: content-box;
+    }
+    input[type=submit] {
+      @extend .dt-btn;
+      margin-right: 7px;
+    }
+  }
+  #whats-new:focus {
+    outline: 0;
+    border-color: #CCCCCC !important;
+  }
+  ul.item-list {
+    border-top: none;
+    li:last-child {
+      border-bottom: none;
+    }
+  }
+  .standard-form {
+    input[type=color],
+    input[type=date],
+    input[type=datetime-local],
+    input[type=datetime],
+    input[type=email],
+    input[type=month],
+    input[type=number],
+    input[type=password],
+    input[type=range],
+    input[type=search],
+    input[type=tel],
+    input[type=text],
+    input[type=time],
+    input[type=url],
+    input[type=week] {
+      @extend .dt-input;
+    }
+    textarea,
+    textarea:focus {
+      @extend .dt-textarea;
+      width: 100%;
+    }
+    div.submit input {
+      @extend .dt-btn;
+    }
+  }
+  .dir-search {
+    input[type=search],
+    input[type=text] {
+      @extend .dt-input;
+    }
+  }
+  .groups-members-search {
+    input[type=search],
+    input[type=text] {
+      @extend .dt-input;
+    }
+  }
+  .comment-reply-link,
+  button,
+  div.generic-button a,
+  input[type=button],
+  input[type=reset],
+  input[type=submit],
+  ul.button-nav li a {
+    @extend .dt-btn;
+    width: auto;
+    height: auto;
+    line-height: 16px;
+  }
+  #bp-browse-button {
+    display: inline-block;
+    float: none;
+  }
+  input[type=submit]#notification-bulk-manage {
+    @extend .dt-btn;
+  }
+  .acomment-options,
+  div.activity-comments div.acomment-content {
+    margin: 0 0 0 60px;
+  }
+  div.activity-comments div.acomment-meta,
+  div.activity-comments div.acomment-content {
+    font-size: 100%;
+  }
+  div.activity-comments {
+    margin-top: 20px;
+  }
+  div.activity-comments > ul > li:first-child {
+    border-top: 1px solid #eee;
+  }
+
+}

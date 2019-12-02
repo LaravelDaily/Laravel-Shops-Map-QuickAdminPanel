@@ -1,0 +1,16 @@
+@media (max-width: 420px) {
+  .geodir_full_page .geodir-search input[type="text"] {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .geodir_full_page .geodir-search select ,
+  .geodir_full_page .geodir-search input[type="button"],
+  .geodir_full_page .geodir-search input[type="submit"] {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .geodir_full_page .geodir-loc-bar-in {
+    padding: 10px;
+  }
+}

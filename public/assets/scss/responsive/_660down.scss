@@ -1,0 +1,26 @@
+@media (max-width: 660px) {
+  .bestof-tabs-on-left #geodir-bestof-places, .bestof-tabs-on-left #geodir-bestof-loading {
+    margin: 0;
+    width: 100%;
+  }
+  .gallery .gallery-item {
+    width: 100% !important;
+    max-width: 100%;
+  }
+
+  .post-navigation {
+    .nav-links {
+      .nav-previous,
+      .nav-next {
+        float: none;
+        display: inline-block;
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  body.admin-bar .mm-page{
+    position: inherit;
+  }
+}
