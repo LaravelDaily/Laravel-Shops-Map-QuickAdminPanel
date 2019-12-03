@@ -7,11 +7,10 @@
             <div class="content-box content-single">
                 <article class="post-8 page type-page status-publish hentry">
                     <header>
-                        <h1 class="entry-title">All Shops</h1></header>
+                        <h1 class="entry-title">{{ request()->filled('search') || request()->filled('category') ? 'Search results' : 'All Shops' }}</h1></header>
                     <div class="entry-content entry-summary">
                         <div class="geodir-search-container geodir-advance-search-default" data-show-adv="default">
-                            <form class="geodir-listing-search gd-search-bar-style" name="geodir-listing-search" action="" method="get">
-                                <input type="hidden" name="geodir_search" value="1" />
+                            <form class="geodir-listing-search gd-search-bar-style" name="geodir-listing-search" action="{{ route('home') }}" method="get">
                                 <div class="geodir-loc-bar">
                                     <div class="clearfix geodir-loc-bar-in">
                                         <div class="geodir-search">
@@ -19,12 +18,12 @@
                                                 <select name="category" class="cat_select">
                                                     <option value="">Category</option>
                                                     @foreach($categories as $category)
-                                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                                        <option value="{{ $category->id }}"{{ old('category', request()->input('category')) == $category->id ? ' selected' : '' }}>{{ $category->name }}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
-                                            <div class='gd-search-input-wrapper gd-search-field-search'> <span class="gd-icon-hover-swap geodir-search-input-label"><i class="fas fa-search gd-show"></i><i class="fas fa-times geodir-search-input-label-clear gd-hide" title="Clear field"></i></span>
-                                                <input class="search_text gd_search_text" name="search" value="" type="text" placeholder="Search for" aria-label="Search for" autocomplete="off" />
+                                            <div class='gd-search-input-wrapper gd-search-field-search'> <span class="geodir-search-input-label"><i class="fas fa-search gd-show"></i><i class="fas fa-times geodir-search-input-label-clear gd-hide" title="Clear field"></i></span>
+                                                <input class="search_text gd_search_text" name="search" value="{{ old('search', request()->input('search')) }}" type="text" placeholder="Search for" aria-label="Search for" autocomplete="off" />
                                             </div>
                                             <button class="geodir_submit_search" data-title="fas fa-search" aria-label="fas fa-search"><i class="fas fas fa-search" aria-hidden="true"></i><span class="sr-only">Search</span></button>
                                         </div>
@@ -98,7 +97,7 @@
 			zoomControlOptions: {
   				style:google.maps.ZoomControlStyle.DEFAULT
 			},
-			center: new google.maps.LatLng(51.5073509, -0.12775829999998223),
+			center: new google.maps.LatLng({{ $latitude }}, {{ $longitude }}),
 			mapTypeId: google.maps.MapTypeId.ROADMAP,
 			scrollwheel: false,
 			panControl:false,
@@ -114,19 +113,22 @@
         for(place in places)
         {
             place = places[place];
-            var marker = new google.maps.Marker({
-                position: new google.maps.LatLng(place.latitude, place.longitude),
-                icon:image,
-                map: map,
-                title: place.name
-            });
-            var infowindow = new google.maps.InfoWindow();
-            google.maps.event.addListener(marker, 'click', (function (marker, place) {
-                return function () {
-                    infowindow.setContent(generateContent(place))
-                    infowindow.open(map, marker);
-                }
-            })(marker, place));
+            if(place.latitude && place.longitude)
+            {
+                var marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(place.latitude, place.longitude),
+                    icon:image,
+                    map: map,
+                    title: place.name
+                });
+                var infowindow = new google.maps.InfoWindow();
+                google.maps.event.addListener(marker, 'click', (function (marker, place) {
+                    return function () {
+                        infowindow.setContent(generateContent(place))
+                        infowindow.open(map, marker);
+                    }
+                })(marker, place));
+            }
         }
 	}
 	google.maps.event.addDomListener(window, 'load', initialize);
