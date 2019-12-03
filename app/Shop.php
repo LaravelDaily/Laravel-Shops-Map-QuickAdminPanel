@@ -70,7 +70,7 @@ class Shop extends Model implements HasMedia
         return $this->belongsTo(User::class, 'created_by_id');
     }
 
-    public function working_hours()
+    public function getWorkingHoursAttribute()
     {
         $hours = $this->days
             ->pluck('pivot', 'name')
