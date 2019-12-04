@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
             DaysTableSeeder::class,
             CategoriesTableSeeder::class,
             ShopsTableSeeder::class,
+            DayShopTableSeeder::class,
         ]);
     }
 }
