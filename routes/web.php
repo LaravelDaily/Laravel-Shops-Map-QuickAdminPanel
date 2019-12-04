@@ -9,6 +9,7 @@ Route::get('/home', function () {
 });
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('shop/{shop}', 'HomeController@show')->name('shop');
 
 Auth::routes();
 

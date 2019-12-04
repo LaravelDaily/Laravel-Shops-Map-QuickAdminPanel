@@ -41,8 +41,8 @@
                                                     <div class="geodir-image-wrapper">
                                                         <ul class="geodir-post-image geodir-images clearfix">
                                                             <li>
-                                                                <a href='#show'>
-                                                                    <img src="{{ $shop->photo }}" width="1440" height="960" class="geodir-lazy-load align size-medium_large" />
+                                                                <a href='{{ route('shop', $shop->id) }}'>
+                                                                    <img src="{{ $shop->thumbnail }}" width="1440" height="960" class="geodir-lazy-load align size-medium_large" />
                                                                 </a>
                                                             </li>
                                                         </ul>
@@ -52,7 +52,7 @@
                                         </div>
                                         <div class="gd-list-item-right ">
                                             <div class="geodir-post-title">
-                                                <h2 class="geodir-entry-title"> <a href="#show" title="View: {{ $shop->name }}">{{ $shop->name }}</a></h2></div>
+                                                <h2 class="geodir-entry-title"> <a href="{{ route('shop', $shop->id) }}" title="View: {{ $shop->name }}">{{ $shop->name }}</a></h2></div>
                                             @foreach($shop->categories as $category)
                                                 <div class="gd-badge-meta gd-badge-alignleft" title="{{ $category->name }}">
                                                     <div class="gd-badge" style="background-color:#ffb100;color:#ffffff;"><i class="fas fa-certificate"></i> <span class='gd-secondary'>{{ $category->name }}</span></div>
@@ -68,7 +68,7 @@
                                                 </div>
                                             @endif
                                             <div class="geodir-post-content-container">
-                                                <div class="geodir_post_meta  geodir-field-post_content" style='max-height:120px;overflow:hidden;'>{{ $shop->description }} <a href='#show' class='gd-read-more  gd-read-more-fade'>Read more...</a></div>
+                                                <div class="geodir_post_meta  geodir-field-post_content" style='max-height:120px;overflow:hidden;'>{{ $shop->description }} <a href='{{ route('shop', $shop->id) }}' class='gd-read-more  gd-read-more-fade'>Read more...</a></div>
                                             </div>
                                         </div>
                                     </li>
@@ -148,10 +148,10 @@
                                         <li>
                                             <div class="geodir-post-title">
                                                 <h4 class="geodir-entry-title">
-                                                    <a href="#show" title="View: `+place.name+`">`+place.name+`</a>
+                                                    <a href="{{ route('shop', '') }}/`+place.id+`" title="View: `+place.name+`">`+place.name+`</a>
                                                 </h4>
                                             </div>
-                                            <a href="#show"><img src="`+place.photo+`" alt="`+place.name+`" class="align size-medium_large" width="1400" height="930"></a>
+                                            <a href="{{ route('shop', '') }}/`+place.id+`"><img src="`+place.thumbnail+`" alt="`+place.name+`" class="align size-medium_large" width="1400" height="930"></a>
                                         </li>
                                     </ul>
                                 </div>

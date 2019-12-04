@@ -17,7 +17,7 @@ class Shop extends Model implements HasMedia
     public $table = 'shops';
 
     protected $appends = [
-        'photos', 'photo'
+        'photos', 'thumbnail'
     ];
 
     protected $dates = [
@@ -83,7 +83,7 @@ class Shop extends Model implements HasMedia
         return OpeningHours::create($hours->toArray());
     }
 
-    public function getPhotoAttribute()
+    public function getThumbnailAttribute()
     {
         return $this->getFirstMediaUrl('photos', 'thumb');
     }
