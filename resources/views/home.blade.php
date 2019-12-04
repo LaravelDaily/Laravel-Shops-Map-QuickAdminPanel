@@ -76,6 +76,7 @@
                             </ul>
                             <div class="clear"></div>
                         </div>
+                        {{ $shops->appends(request()->query())->links('partials.pagination') }}
                     </div>
                     <footer class="entry-footer"></footer>
                 </article>

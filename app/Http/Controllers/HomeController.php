@@ -12,11 +12,7 @@ class HomeController extends Controller
         $categories = Category::all();
         $shops = Shop::with(['categories', 'days'])
             ->searchResults()
-            ->get()
-            ->map(function($shop) {
-                $shop->photo = $shop->getFirstMediaUrl('photos', 'thumb');
-                return $shop;
-            });
+            ->paginate(9);
 
         $mapShops = $shops->makeHidden(['id', 'active', 'created_at', 'updated_at', 'deleted_at', 'created_by_id', 'photos', 'media']);
         $latitude = $shops->count() && (request()->filled('category') || request()->filled('search')) ? $shops->average('latitude') : 51.5073509;
