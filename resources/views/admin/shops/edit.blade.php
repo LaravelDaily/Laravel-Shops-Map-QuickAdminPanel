@@ -92,42 +92,34 @@
                     <label class="my-1 mr-2">{{ ucfirst($day->name) }}: from</label>
                     <select class="custom-select my-1 mr-sm-2" name="from_hours[{{ $day->id }}]">
                         <option value="">--</option>
-                        @foreach(range(0,24) as $hours)
+                        @foreach(range(0,23) as $hours)
                             <option 
                                 value="{{ $hours < 10 ? "0$hours" : $hours }}"
-                                {{ old('from_hours.'.$day->id, optional($shop->days->find($day->id))->pivot['from_hours']) == ($hours < 10 ? "0$hours" : $hours) ? 'selected' : '' }}
+                                {{ old('from_hours.'.$day->id, $shop->days->find($day->id) ? $shop->days->find($day->id)->pivot['from_hours'] : null) == ($hours < 10 ? "0$hours" : $hours) ? 'selected' : '' }}
                             >{{ $hours < 10 ? "0$hours" : $hours }}</option>
                         @endforeach
                     </select>
                     <label class="my-1 mr-2">:</label>
                     <select class="custom-select my-1 mr-sm-2" name="from_minutes[{{ $day->id }}]">
                         <option value="">--</option>
-                        @foreach(range(0,59) as $minutes)
-                            <option 
-                                value="{{ $minutes < 10 ? "0$minutes" : $minutes }}"
-                                {{ old('from_minutes.'.$day->id, optional($shop->days->find($day->id))->pivot['from_minutes']) == ($minutes < 10 ? "0$minutes" : $minutes) ? 'selected' : '' }}
-                            >{{ $minutes < 10 ? "0$minutes" : $minutes }}</option>
-                        @endforeach
+                        <option value="00" {{ old('from_minutes.'.$day->id, $shop->days->find($day->id) ? $shop->days->find($day->id)->pivot['from_minutes'] : null) == '00' ? 'selected' : '' }}>00</option>
+                        <option value="30" {{ old('from_minutes.'.$day->id, $shop->days->find($day->id) ? $shop->days->find($day->id)->pivot['from_minutes'] : null) == '30' ? 'selected' : '' }}>30</option>
                     </select>
                     <label class="my-1 mr-2">to</label>
                     <select class="custom-select my-1 mr-sm-2" name="to_hours[{{ $day->id }}]">
                         <option value="">--</option>
-                        @foreach(range(0,24) as $hours)
+                        @foreach(range(0,23) as $hours)
                             <option 
                                 value="{{ $hours < 10 ? "0$hours" : $hours }}"
-                                {{ old('to_hours.'.$day->id, optional($shop->days->find($day->id))->pivot['to_hours']) == ($hours < 10 ? "0$hours" : $hours) ? 'selected' : '' }}
+                                {{ old('to_hours.'.$day->id, $shop->days->find($day->id) ? $shop->days->find($day->id)->pivot['to_hours'] : null) == ($hours < 10 ? "0$hours" : $hours) ? 'selected' : '' }}
                             >{{ $hours < 10 ? "0$hours" : $hours }}</option>
                         @endforeach
                     </select>
                     <label class="my-1 mr-2">:</label>
                     <select class="custom-select my-1 mr-sm-2" name="to_minutes[{{ $day->id }}]">
                         <option value="">--</option>
-                        @foreach(range(0,59) as $minutes)
-                            <option 
-                                value="{{ $minutes < 10 ? "0$minutes" : $minutes }}"
-                                {{ old('to_minutes.'.$day->id, optional($shop->days->find($day->id))->pivot['to_minutes']) == ($minutes < 10 ? "0$minutes" : $minutes) ? 'selected' : '' }}
-                            >{{ $minutes < 10 ? "0$minutes" : $minutes }}</option>
-                        @endforeach
+                        <option value="00" {{ old('to_minutes.'.$day->id, $shop->days->find($day->id) ? $shop->days->find($day->id)->pivot['to_minutes'] : null) == '00' ? 'selected' : '' }}>00</option>
+                        <option value="30" {{ old('to_minutes.'.$day->id, $shop->days->find($day->id) ? $shop->days->find($day->id)->pivot['to_minutes'] : null) == '30' ? 'selected' : '' }}>30</option>
                     </select>
                 </div>
             @endforeach

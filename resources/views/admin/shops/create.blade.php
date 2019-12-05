@@ -91,7 +91,7 @@
                     <label class="my-1 mr-2">{{ ucfirst($day->name) }}: from</label>
                     <select class="custom-select my-1 mr-sm-2" name="from_hours[{{ $day->id }}]">
                         <option value="">--</option>
-                        @foreach(range(0,24) as $hours)
+                        @foreach(range(0,23) as $hours)
                             <option 
                                 value="{{ $hours < 10 ? "0$hours" : $hours }}"
                                 {{ old('from_hours.'.$day->id) == ($hours < 10 ? "0$hours" : $hours) ? 'selected' : '' }}
@@ -101,17 +101,13 @@
                     <label class="my-1 mr-2">:</label>
                     <select class="custom-select my-1 mr-sm-2" name="from_minutes[{{ $day->id }}]">
                         <option value="">--</option>
-                        @foreach(range(0,59) as $minutes)
-                            <option 
-                                value="{{ $minutes < 10 ? "0$minutes" : $minutes }}"
-                                {{ old('from_minutes.'.$day->id) == ($minutes < 10 ? "0$minutes" : $minutes) ? 'selected' : '' }}
-                            >{{ $minutes < 10 ? "0$minutes" : $minutes }}</option>
-                        @endforeach
+                        <option value="00" {{ old('from_minutes.'.$day->id) == '00' ? 'selected' : '' }}>00</option>
+                        <option value="30" {{ old('from_minutes.'.$day->id) == '30' ? 'selected' : '' }}>30</option>
                     </select>
                     <label class="my-1 mr-2">to</label>
                     <select class="custom-select my-1 mr-sm-2" name="to_hours[{{ $day->id }}]">
                         <option value="">--</option>
-                        @foreach(range(0,24) as $hours)
+                        @foreach(range(0,23) as $hours)
                             <option 
                                 value="{{ $hours < 10 ? "0$hours" : $hours }}"
                                 {{ old('to_hours.'.$day->id) == ($hours < 10 ? "0$hours" : $hours) ? 'selected' : '' }}
@@ -121,12 +117,8 @@
                     <label class="my-1 mr-2">:</label>
                     <select class="custom-select my-1 mr-sm-2" name="to_minutes[{{ $day->id }}]">
                         <option value="">--</option>
-                        @foreach(range(0,59) as $minutes)
-                            <option 
-                                value="{{ $minutes < 10 ? "0$minutes" : $minutes }}"
-                                {{ old('to_minutes.'.$day->id) == ($minutes < 10 ? "0$minutes" : $minutes) ? 'selected' : '' }}
-                            >{{ $minutes < 10 ? "0$minutes" : $minutes }}</option>
-                        @endforeach
+                        <option value="00" {{ old('to_minutes.'.$day->id) == '00' ? 'selected' : '' }}>00</option>
+                        <option value="30" {{ old('to_minutes.'.$day->id) == '30' ? 'selected' : '' }}>30</option>
                     </select>
                 </div>
             @endforeach
