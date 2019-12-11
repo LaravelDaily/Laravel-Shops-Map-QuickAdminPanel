@@ -39,6 +39,13 @@ to manage all the shops.
 
 - - - - -
 
+## Helpful articles
+
+- [Laravel: Find Addresses with Coordinates via Google Maps API](https://laraveldaily.com/laravel-find-addresses-with-coordinates-via-google-maps-api/)
+
+
+- - - - -
+
 ## License
 
 Basically, feel free to use and re-use any way you want.
