@@ -6,30 +6,17 @@ to manage all the shops.
 Front-end uses Google Maps API to view the map.
 Back-end uses Google Autocomplete API
 
-Demo video: [Youtube](https://www.youtube.com/watch?v=S2RRJqqvHEI)
+- - - - -
+
+## Screenshots 
+
+![Laravel Shops Google Maps](https://laraveldaily.com/wp-content/uploads/2019/12/Screen-Shot-2019-12-11-at-10.58.07-AM.png)
 
 - - - - -
 
-## Front-side Screenshots 
-
-![Laravel Knowledge Base FAQ Home](https://laraveldaily.com/wp-content/uploads/2019/10/Screen-Shot-2019-10-16-at-6.25.56-PM.png)
+![Laravel Shops Google Maps Autocomplete Address](https://laraveldaily.com/wp-content/uploads/2019/12/Screen-Shot-2019-12-11-at-11.00.12-AM.png)
 
 - - - - -
-
-![Laravel Knowledge Base FAQ Category](https://laraveldaily.com/wp-content/uploads/2019/10/Screen-Shot-2019-10-16-at-6.26.09-PM.png)
-
-- - - - -
-
-## Adminpanel Screenshots
-
-![Laravel Knowledge Base FAQ adminpanel articles](https://laraveldaily.com/wp-content/uploads/2019/10/Screen-Shot-2019-10-16-at-6.26.58-PM.png)
-
-![Laravel Knowledge Base FAQ adminpanel new article](https://laraveldaily.com/wp-content/uploads/2019/10/Screen-Shot-2019-10-16-at-6.27.12-PM.png)
-
-- Front-end part is taken from [Bootstrap Knowledge Base Theme](https://github.com/sunnyg1210/bootstrapKnowledgeBaseTheme) and transformed into Laravel Blade and assets.
-- Admin part is fully generated with [QuickAdminPanel](https://2019.quickadminpanel.com).
-
----
 
 ## How to use
 
