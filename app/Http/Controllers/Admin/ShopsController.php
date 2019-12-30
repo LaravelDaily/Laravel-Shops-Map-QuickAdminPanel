@@ -76,6 +76,11 @@ class ShopsController extends Controller
 
     public function update(UpdateShopRequest $request, Shop $shop)
     {
+        if(!$request->active){
+            $request->merge([
+                'active' => 0
+            ]);
+        }
         $shop->update($request->all());
         $shop->categories()->sync($request->input('categories', []));
 
