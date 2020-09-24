@@ -85,7 +85,7 @@ class ShopsTableSeeder extends Seeder
 
             foreach($pictures->random(rand(1,3)) as $index)
             {
-                $shop->addMediaFromUrl(public_path("assets/images/shops/a$index.jpg"))->toMediaCollection('photos');
+                $shop->addMedia(public_path("assets/images/shops/a$index.jpg"))->preservingOriginal()->toMediaCollection('photos');
             }
         }
     }

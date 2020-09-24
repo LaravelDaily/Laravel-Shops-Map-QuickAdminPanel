@@ -5,14 +5,14 @@ namespace App;
 use App\Traits\MultiTenantModelTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Spatie\MediaLibrary\HasMedia\HasMedia;
-use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
-use Spatie\MediaLibrary\Models\Media;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Spatie\OpeningHours\OpeningHours;
 
 class Shop extends Model implements HasMedia
 {
-    use SoftDeletes, MultiTenantModelTrait, HasMediaTrait;
+    use SoftDeletes, MultiTenantModelTrait, InteractsWithMedia;
 
     public $table = 'shops';
 
@@ -39,7 +39,7 @@ class Shop extends Model implements HasMedia
         'created_by_id',
     ];
 
-    public function registerMediaConversions(Media $media = null)
+    public function registerMediaConversions(Media $media = null): void
     {
         $this->addMediaConversion('thumb')->width(325)->height(210);
     }
